@@ -27,8 +27,12 @@
             <textarea
                 v-model="jsonInput"
                 class="flex border rounded p-3 w-4/5 h-40"
+                :class="{ 'border-blue-500 bg-blue-50': isDragging }"
                 placeholder="Paste RAMP config JSON here"
                 aria-label="RAMP config JSON input"
+                @dragover.prevent="() => (isDragging = true)"
+                @dragleave="() => (isDragging = false)"
+                @drop.prevent="onDrop"
             ></textarea>
             <div v-if="jsonError" class="text-red-600">{{ jsonError }}</div>
 
@@ -50,6 +54,7 @@ import MapInstance from './components/MapInstance.vue';
 
 const jsonInput = ref<any>(null);
 const jsonError = ref<string>('');
+const isDragging = ref<boolean>(false);
 // const configName = ref<string>('');
 const rampConfig = ref<any>({});
 
@@ -58,6 +63,17 @@ const uploadJson = () => {
         rampConfig.value = JSON.parse(jsonInput.value);
     } catch {
         jsonError.value = 'Invalid JSON';
+    }
+};
+
+const onDrop = async (event: DragEvent) => {
+    isDragging.value = false;
+    const data = event.dataTransfer;
+    if (data && data.files.length > 0) {
+        const file = data.files[0];
+        const text = await file.text();
+        jsonInput.value = text;
+        return;
     }
 };
 
