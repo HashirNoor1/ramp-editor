@@ -28,8 +28,8 @@
                 v-model="jsonInput"
                 class="flex border rounded p-3 w-4/5 h-40"
                 :class="{ 'border-blue-500 bg-blue-50': isDragging }"
-                placeholder="Paste RAMP config JSON here"
-                aria-label="RAMP config JSON input"
+                :placeholder="t('editor.ramp.upload.placeholder')"
+                :aria-label="t('editor.ramp.upload.input')"
                 @dragover.prevent="() => (isDragging = true)"
                 @dragleave="() => (isDragging = false)"
                 @drop.prevent="onDrop"
@@ -41,7 +41,7 @@
                 @click="uploadJson"
                 :disabled="!!jsonError || !jsonInput"
             >
-                Upload RAMP Config
+                {{ t('editor.ramp.upload') }}
             </button>
         </div>
     </div>
@@ -50,6 +50,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
+import { useI18n } from 'vue-i18n';
 import MapInstance from './components/MapInstance.vue';
 
 const jsonInput = ref<any>(null);
@@ -57,6 +58,8 @@ const jsonError = ref<string>('');
 const isDragging = ref<boolean>(false);
 // const configName = ref<string>('');
 const rampConfig = ref<any>({});
+
+const { t } = useI18n();
 
 const uploadJson = () => {
     try {

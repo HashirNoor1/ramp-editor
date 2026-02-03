@@ -1,18 +1,18 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
+<!doctype html>
+<html lang="fr" dir="ltr">
     <head>
         <meta charset="utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-        <title>RAMP App Editor R&D</title>
+        <title>R&D de l'éditeur d'applications PCAR</title>
 
         <!-- Load stylesheet -->
         <link rel="stylesheet" href="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/cdts-styles.css" />
 
         <!-- Load/activate closure template scripts -->
         <script
-            src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/compiled/wet-en.js"
+            src="https://www.canada.ca/etc/designs/canada/cdts/gcweb/v5_0_2/cdts/compiled/wet-fr.js"
             data-cdts-setup='{"cdnEnv": "prod"}'
         ></script>
         <link rel="stylesheet" href="./ramp/ramp.css" />
@@ -29,14 +29,13 @@
         <div id="def-footer"></div>
 
         <script type="text/javascript">
-
             var defTop = document.getElementById('def-top');
             defTop.outerHTML = wet.builder.top({
                 lngLinks: [
                     {
-                        lang: 'fr',
-                        href: 'index-fr.html',
-                        text: 'Français'
+                        lang: 'en',
+                        href: 'index.html',
+                        text: 'English'
                     }
                 ]
             });
