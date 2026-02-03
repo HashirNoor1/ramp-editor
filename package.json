@@ -13,9 +13,11 @@
         "pinia": "^3.0.3",
         "ramp-config-editor_editeur-config-pcar": "^4.0.0",
         "ramp-pcar": "^4.13.0",
-        "vue": "^3.5.17"
+        "vue": "^3.5.17",
+        "vue-i18n": "^11.2.8"
     },
     "devDependencies": {
+        "@rollup/plugin-dsv": "^3.0.5",
         "@tailwindcss/forms": "^0.5.3",
         "@vitejs/plugin-vue": "^6.0.0",
         "autoprefixer": "^10.4.14",
