@@ -2,3 +2,7 @@ key,enValue,enValid,frValue,frValid
 editor.ramp.upload,Upload RAMP Config,1,Télécharger la configuration PCAR,0
 editor.ramp.upload.placeholder,Paste RAMP config JSON here,1,Collez ici le fichier JSON de configuration PCAR,0
 editor.ramp.upload.input,RAMP config input,1,Entrée de configuration PCAR,0
+editor.input.toolbar.undo,Undo last action,,0
+editor.input.toolbar.redo,Redo last action,1,,0
+editor.input.toolbar.paste,Paste from clipboard,1,,0
+editor.input.toolbar.clear,Clear text,1,,0
