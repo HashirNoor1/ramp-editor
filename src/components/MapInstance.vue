@@ -15,14 +15,20 @@ const props = defineProps({
     }
 });
 
-watch(() => props.config, (newConfig) => {
-    if (rInstance.value) {
-        nextTick(() => { 
-            rInstance.value = (window as any).RAMP.createInstance(rampContainer.value as HTMLElement, newConfig as any);
-            // rInstance.value.reload(newConfig as any);
-        });
+watch(
+    () => props.config,
+    (newConfig) => {
+        if (rInstance.value) {
+            nextTick(() => {
+                rInstance.value = (window as any).RAMP.createInstance(
+                    rampContainer.value as HTMLElement,
+                    newConfig as any
+                );
+                // rInstance.value.reload(newConfig as any);
+            });
+        }
     }
-});
+);
 
 const rInstance: any = ref(null);
 const rampContainer = ref<HTMLElement | null>();
@@ -34,6 +40,32 @@ onMounted(() => {
 </script>
 
 <style lang="scss" scoped>
+.ramp-container :where(.m-5) {
+    margin: 5px !important;
+}
+
+.ramp-container :where(.mx-4) {
+    margin-left: 4px !important;
+    margin-right: 4px !important;
+}
+
+.ramp-container :where(.mx-5) {
+    margin-left: 5px !important;
+    margin-right: 5px !important;
+}
+
+.ramp-container :where(.p-3) {
+    padding: 3px !important;
+}
+
+.ramp-container :where(.p-4) {
+    padding: 4px !important;
+}
+
+.ramp-container :where(.p-5) {
+    padding: 5px !important;
+}
+
 :deep(rv-basemap-item .rv-basemap-thumb img) {
     max-width: none;
 }

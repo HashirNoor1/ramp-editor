@@ -26,7 +26,7 @@
             /> -->
             <textarea
                 v-model="jsonInput"
-                class="flex border rounded p-3 w-full h-40"
+                class="flex border rounded textarea-padding w-full h-40"
                 :class="{ 'border-blue-500 bg-blue-50': isDragging }"
                 :placeholder="t('editor.ramp.upload.placeholder')"
                 :aria-label="t('editor.ramp.upload.input')"
@@ -40,7 +40,7 @@
                 <!-- Undo -->
                 <button
                     @click="undoText"
-                    class="bg-white rounded shadow hover:bg-gray-300 p-2"
+                    class="bg-white rounded shadow hover:bg-gray-300 toolbar-button-padding"
                     :title="t('editor.input.toolbar.undo')"
                     :aria-label="t('editor.input.toolbar.undo')"
                 >
@@ -54,7 +54,7 @@
                 <!-- Redo -->
                 <button
                     @click="redoText"
-                    class="bg-white rounded shadow hover:bg-gray-300 p-2"
+                    class="bg-white rounded shadow hover:bg-gray-300 toolbar-button-padding"
                     :title="t('editor.input.toolbar.redo')"
                     :aria-label="t('editor.input.toolbar.redo')"
                 >
@@ -68,7 +68,7 @@
                 <!-- Paste -->
                 <button
                     @click="pasteFromClipboard"
-                    class="bg-white rounded shadow hover:bg-gray-300 p-2"
+                    class="bg-white rounded shadow hover:bg-gray-300 toolbar-button-padding"
                     :title="t('editor.input.toolbar.paste')"
                     :aria-label="t('editor.input.toolbar.paste')"
                 >
@@ -86,7 +86,7 @@
                 <!-- Clear -->
                 <button
                     @click="clearJson"
-                    class="bg-white rounded shadow hover:bg-gray-300 p-2"
+                    class="bg-white rounded shadow hover:bg-gray-300 toolbar-button-padding"
                     :title="t('editor.input.toolbar.clear')"
                     :aria-label="t('editor.input.toolbar.clear')"
                 >
@@ -101,7 +101,7 @@
             <div v-if="jsonError" class="mt-2 text-red-600">{{ jsonError }}</div>
 
             <button
-                class="flex border-2 border-solid rounded font-bold hover:bg-gray-400 px-4 py-2 mt-4 h-12"
+                class="flex border-2 border-solid rounded font-bold hover:bg-gray-400 upload-button-padding h-12"
                 @click="uploadJson"
                 :disabled="!!jsonError || !jsonInput"
             >
@@ -111,6 +111,20 @@
     </div>
     <!-- <MapEditor /> -->
 </template>
+
+<style scoped>
+.textarea-padding {
+    @apply p-3;
+}
+
+.toolbar-button-padding {
+    @apply p-2;
+}
+
+.upload-button-padding {
+    @apply text-base px-4 py-2 mt-4;
+}
+</style>
 
 <script setup lang="ts">
 import { ref, watch } from 'vue';
