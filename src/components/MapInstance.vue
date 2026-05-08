@@ -1,6 +1,6 @@
 <template>
     <div v-focus-container tabindex="0" ref="rampFocusContainer" class="ramp-container">
-        <div ref="rampContainer" class="mt-2 h-[60dvh] w-4/5 resize overflow-auto border"></div>
+        <div ref="rampContainer" class="mt-2 h-[60dvh] w-full resize overflow-auto border sm:w-4/5"></div>
     </div>
 </template>
 
